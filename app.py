@@ -217,6 +217,13 @@ def find_fonts(css, found_fonts):
                 found_fonts.add(font)
 
 
+@app.route("/", methods=["GET"])
+def index():
+    return jsonify({
+        "status": "ok",
+        "service": "Font Finder API"
+    })
+
 @app.route("/analyze", methods=["GET"])
 def analyze():
     url = request.args.get("url", "").strip()
